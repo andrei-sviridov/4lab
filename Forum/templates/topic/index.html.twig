@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Topic index{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h2 class = "text-center">Топики:</h2>
+    <a  class="btn btn-primary" href="{{ path('topic_new') }}">Создать новый</a>
+        <div class="row">
+            {% for topic in topics %}
+                <div class="card col-5 m-3">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ topic.name }}</h5>
+                        <p class="card-text">Количество комментариев: {{ topic.comments|length }}</p>
+                        <a href="{{ path('topic_show', {'id': topic.id}) }}" class="btn btn-primary">Посмотреть</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

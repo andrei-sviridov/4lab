@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Topic{% endblock %}
+
+{% block body %}
+    <div class = "container">
+        <h1 class = "text-center">{{ topic.name }}</h1>
+        <p>{{ topic.content }}</p>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Автор</th>
+                    <td>{{ topic.autor.name }}</td>
+                </tr>
+                <tr>
+                    <th>Раздел</th>
+                    <td>{{ topic.section.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-primary mt-3" href="{{ path('topic_index') }}">Вернуться к списку</a>
+    </div>
+
+    <h2 class = "text-center">Комментарии</h2>
+         {{ render(controller('App\\Controller\\CommentController::createComment', {'topic': topic.id })) }}
+    <div class = "container">
+            {% for comment in comments %}
+            <div class="card border text-black mb-3">
+                <div class="card-body">
+                    <div>{{ comment.autor.name }}</div>
+                    <br>
+                    <div>{{ comment.text }}</div>
+                </div>
+            </div>
+            {% endfor %}     
+        </div>
+    </div>
+
+{% endblock %}

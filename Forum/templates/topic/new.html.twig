@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Topic{% endblock %}
+
+{% block body %}
+    <div class = "container">
+        <h1>Создать новый топик</h1>
+
+        {{ include('topic/_form.html.twig') }}
+
+        <a class="btn btn-primary mt-3" href="{{ path('topic_index') }}">Вернуться</a>
+    </div>
+{% endblock %}

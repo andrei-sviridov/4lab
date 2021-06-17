@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AboutController!{% endblock %}
+
+{% block body %}
+<main role="main" class="container">
+    <div class="starter-template">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <h1>About the project</h1>
+        <p class="lead">A forum will open here in the future.<br>Be sure to wait!</p>
+        {% else %}
+        <h1>Please log in</h1>
+        <p class="lead">To find out about the project you must log in</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
